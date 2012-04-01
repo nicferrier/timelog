@@ -1,0 +1,30 @@
+#!/bin/sh
+
+case $1 in
+    normalize_date_num)
+        sed -re '/Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec  /s/(Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)  ([0-9]) (.*)/\1 0\2 \3/'
+        ;;
+
+    help|--help|-h|-?)
+        cat <<EOF
+Read the system log for DHCP events that tell us when we got and gave
+up a DHCP lease.
+
+This tells us when we came and went from a building which is near to
+being a timelog of where and when we started work.
+
+EOF
+        ;;
+    
+    *)
+        # The main program
+        sudo grep dhcpcd /var/log/daemon.log* \
+            | cut -f2- -d':' \
+            | grep -E 'offered|releasing lease' \
+            | $0 normalize_date_num \
+            | sort -M
+        ;;
+
+esac
+
+# End
