@@ -1,0 +1,42 @@
+timelog is a silly little app to help with time logging.
+
+It reads the dhcp lease renews and releases to give an approximation
+of when you started and finished working.
+
+Here's an example from my machine:
+
+
+{{{
+$ timelog
+Mar 26 21:37:32 localhost dhcpcd[2151]: wlan0: releasing lease of 10.25.211.106
+Mar 26 22:39:09 localhost dhcpcd[5265]: wlan0: offered 10.226.112.240 from 10.226.112.254
+Mar 27 06:29:58 localhost dhcpcd[5301]: wlan0: releasing lease of 10.226.112.240
+Mar 27 08:17:32 localhost dhcpcd[29212]: wlan0: offered 10.90.129.228 from 1.1.1.1
+Mar 27 19:44:32 localhost dhcpcd[29278]: wlan0: releasing lease of 10.90.129.228
+Mar 27 20:24:09 localhost dhcpcd[14715]: wlan0: offered 10.25.211.106 from 10.25.210.1
+Mar 27 20:55:01 localhost dhcpcd[14790]: wlan0: releasing lease of 10.25.211.106
+Mar 27 20:55:06 localhost dhcpcd[22736]: wlan0: offered 10.226.112.247 from 10.226.112.254
+Mar 27 20:58:22 localhost dhcpcd[22795]: wlan0: releasing lease of 10.226.112.247
+Mar 27 20:58:25 localhost dhcpcd[23697]: wlan0: offered 10.25.211.106 from 10.25.210.1
+Mar 28 08:00:30 localhost dhcpcd[23741]: wlan0: releasing lease of 10.25.211.106
+Mar 28 08:31:59 localhost dhcpcd[6818]: wlan0: offered 10.90.130.98 from 1.1.1.1
+Mar 28 19:47:54 localhost dhcpcd[3078]: wlan0: releasing lease of 10.90.130.98
+Mar 28 20:22:33 localhost dhcpcd[9954]: wlan0: offered 10.25.211.106 from 10.25.210.1
+Mar 29 06:42:23 localhost dhcpcd[1499]: wlan0: releasing lease of 10.25.211.106
+Mar 29 07:24:28 localhost dhcpcd[12584]: wlan0: offered 10.90.130.103 from 1.1.1.1
+Mar 29 12:01:48 localhost dhcpcd[27260]: wlan0: offered 10.90.130.103 from 1.1.1.1
+Mar 29 13:14:27 localhost dhcpcd[13445]: wlan0: releasing lease of 10.90.130.103
+Mar 29 13:14:31 localhost dhcpcd[13530]: wlan0: offered 10.90.143.114 from 1.1.1.1
+Mar 29 15:57:24 localhost dhcpcd[23190]: wlan0: releasing lease of 10.90.143.114
+Mar 29 15:57:53 localhost dhcpcd[23990]: wlan0: offered 10.90.143.133 from 1.1.1.1
+Mar 29 20:11:11 localhost dhcpcd[24035]: wlan0: releasing lease of 10.90.143.133
+Mar 29 20:56:20 localhost dhcpcd[16023]: wlan0: offered 10.26.12.113 from 10.26.0.254
+Mar 29 21:51:43 localhost dhcpcd[16065]: wlan0: releasing lease of 10.26.12.113
+Mar 30 09:53:43 localhost dhcpcd[31107]: wlan0: offered 10.90.131.95 from 1.1.1.1
+Mar 30 11:53:48 localhost dhcpcd[31158]: wlan0: releasing lease of 10.90.131.95
+Mar 30 18:57:35 localhost dhcpcd[2122]: wlan0: offered 172.31.1.110 from 172.31.1.1
+}}}
+
+Right now it is very unportable.
+
+Patches to make it more portable are very welcome.
